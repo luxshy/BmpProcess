@@ -1,0 +1,21 @@
+global im;
+rgb = im; 
+cform = makecform('srgb2cmyk');
+CMYK = applycform(rgb,cform);
+%CMYK= im;
+C=CMYK(:,:,1);
+M=CMYK(:,:,2);
+Y=CMYK(:,:,3);
+K=CMYK(:,:,4);
+figure;
+imshow(C);title('C');%查看各通道图像
+imwrite(C,'C1.tif','TIFF');
+figure;
+imshow(M);title('M');
+imwrite(M,'M1.tif','TIFF');
+figure;
+imshow(Y);title('Y');
+imwrite(Y,'Y1.tif','TIFF');
+figure;
+imshow(K);title('K');
+imwrite(K,'K1.tif','TIFF');
